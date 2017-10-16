@@ -1,0 +1,57 @@
+<%= form_with(model: city, local: true) do |form| %>
+  <% if city.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(city.errors.count, "error") %> prohibited this city from being saved:</h2>
+
+      <ul>
+      <% city.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <div class="container">
+ 
+  <div class="row">
+    <div class="col-lg-6">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :city_name %>
+    </div>
+  </div>
+   <br>
+
+  
+  <div class="row">
+    <div class="col-lg-6">
+      <%= form.label :state %>
+    <%= form.text_field :state, id: :city_state %>
+    </div>
+  </div><br>
+
+  <div class="row">
+    <div class="col-lg-6">
+    <%= form.label :country %>
+    <%= form.country_select :country, :size=>"15", id: :city_country %>
+    
+    </div>
+   </div>
+ </br>
+
+  <!--<div class="field">
+    <%= form.label :latitude %>
+    <%= form.text_field :latitude, id: :city_latitude %>
+  </div>
+
+  <div class="field">
+    <%= form.label :longitude %>
+    <%= form.text_field :longitude, id: :city_longitude %>
+  </div>-->
+
+  <div class="actions">
+    <%= form.submit "New City" , class:"btn btn-success" %>
+  </div>
+
+</div> 
+<% end %>
